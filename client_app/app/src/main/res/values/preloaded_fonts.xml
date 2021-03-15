@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/actor</item>
+        <item>@font/antic</item>
+        <item>@font/cantarell_bold</item>
+        <item>@font/cutive</item>
+        <item>@font/droid_sans_mono</item>
+        <item>@font/the_girl_next_door</item>
+    </array>
+</resources>

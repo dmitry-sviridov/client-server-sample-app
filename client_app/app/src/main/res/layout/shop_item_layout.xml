@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="4dp"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="@color/secondary_dark"
+    app:strokeWidth="3dp"
+    android:layout_margin="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        
+        <ImageView
+            android:id="@+id/item_image_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            tools:src="@mipmap/shop_item_debug_pic"
+/>
+
+        <TextView
+            android:id="@+id/item_title_text"
+            android:fontFamily="@font/roboto_mono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="iPhone SE 2020" />
+
+        <TextView
+            android:id="@+id/item_description_text"
+            android:fontFamily="monospace"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            tools:text="Модель 2020 года сочетает в себе проверенный дизайн, влагозащиту и процессор iPhone 11 - баланс цены и качества бла-бла-бла" />
+
+        <TextView
+            android:id="@+id/item_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cutive"
+            android:textColor="#0288D1"
+            android:textSize="24sp"
+            tools:text="39 900" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

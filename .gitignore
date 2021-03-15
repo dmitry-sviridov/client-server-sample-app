@@ -1,0 +1,16 @@
+
+*.DS_Store
+*.iml
+
+*.idea
+*.idea/*
+
+*build
+*build/*
+
+*.gradle
+*captures
+
+./client_app/.externalNativeBuild
+./client_app/.cxx
+./client_app/local.properties

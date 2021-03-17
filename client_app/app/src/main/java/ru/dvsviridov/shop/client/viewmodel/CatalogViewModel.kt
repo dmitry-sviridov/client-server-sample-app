@@ -30,7 +30,7 @@ class CatalogViewModel
 
     fun getItemsFromShop() = viewModelScope.launch {
         _resourceState.postValue(ResourceState.loading(null))
-        delay(2000) // для видимости загрузки
+        delay(1500) // для видимости загрузки
         shopApiRepository.getItemsFromServer().let { response ->
             if (response.isSuccessful) {
                 Log.d(TAG, "getItemsFromShop: ${response.body()}")

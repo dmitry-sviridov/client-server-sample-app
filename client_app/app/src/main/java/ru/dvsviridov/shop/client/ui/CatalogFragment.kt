@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dvsviridov.shop.client.databinding.CatalogFragmentBinding
 import ru.dvsviridov.shop.client.viewmodel.CatalogViewModel
@@ -39,6 +40,14 @@ class CatalogFragment : Fragment(), RecyclerItemEventListener {
         })
 
         initRecycler()
+        initRefreshLayout()
+    }
+
+    private fun initRefreshLayout() {
+        binding.refresher.setOnRefreshListener {
+            binding.refresher.isRefreshing = true
+            viewModel.getItemsFromShop()
+        }
     }
 
     private fun initRecycler() {
@@ -53,15 +62,15 @@ class CatalogFragment : Fragment(), RecyclerItemEventListener {
     private fun render(state: ResourceState<List<Item>>) {
         when (state.status) {
             ResourceState.FetchingStatus.ERROR -> {
-                binding.loader.visibility = View.GONE
+                binding.refresher.isRefreshing = false
                 Log.d(TAG, "render: ERROR")
             }
             ResourceState.FetchingStatus.LOADING -> {
-                binding.loader.visibility = View.VISIBLE
+                binding.refresher.isRefreshing = true
                 Log.d(TAG, "render: LOADING")
             }
             ResourceState.FetchingStatus.SUCCESS -> {
-                binding.loader.visibility = View.GONE
+                binding.refresher.isRefreshing = false
                 state.data?.let {
                     itemAdapter.submitList(it)
                     if (it.isEmpty()) {
@@ -80,6 +89,7 @@ class CatalogFragment : Fragment(), RecyclerItemEventListener {
 
     override fun onPriceClick(item: Item) {
         Log.d(TAG, "onPriceClick: ${item.price}")
+        Snackbar.make(binding.root, "Добавлено: ${item.title}", Snackbar.LENGTH_LONG).show()
     }
 
     companion object {

@@ -22,8 +22,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            tools:src="@mipmap/shop_item_debug_pic"
-/>
+            tools:src="@mipmap/shop_item_debug_pic" />
 
         <TextView
             android:id="@+id/item_title_text"
